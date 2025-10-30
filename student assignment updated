@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+struct Student {
+    std::string name;
+    int age;
+    std::string gender;
+    std::string branch;
+};
+
+int main() {
+    
+    std::vector<Student> students(100);
+
+    for (int i = 0; i < 10; ++i) {
+        students[i] = {"Student" + std::to_string(i + 1), 18 + i, "Male", "CS"};
+    }
+
+    std::cout << "Initial array size: " << students.size() << std::endl;
+
+    students.resize(200);
+
+    std::cout << "Resized array size: " << students.size() << std::endl;
+
+    for (int i = 100; i < 110; ++i) {
+        students[i] = {"NewStudent" + std::to_string(i + 1), 20 + (i % 5), "Female", "IT"};
+    }
+
+    std::cout << "\nExample student data:" << std::endl;
+    std::cout << "Student 1: " << students[0].name << ", " << students[0].age << std::endl;
+    std::cout << "Student 101: " << students[100].name << ", " << students[100].age << std::endl;
+
+    return 0;
+}
