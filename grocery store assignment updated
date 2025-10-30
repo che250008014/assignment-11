@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <numeric> // For std::iota
+
+int main() {
+
+    std::vector<double> sales_figures(100);
+
+    std::iota(sales_figures.begin(), sales_figures.end(), 1.0);
+    
+    std::cout << "Initial array created with size: " << sales_figures.size() << std::endl;
+    std::cout << "First element: " << sales_figures[0] << ", Last element: " << sales_figures[99] << std::endl;
+
+    sales_figures.resize(200);
+
+    std::cout << "\nArray resized to: " << sales_figures.size() << std::endl;
+    std::cout << "Element at original last index (index 99): " << sales_figures[99] << std::endl;
+    std::cout << "New element at index 100: " << sales_figures[100] << std::endl;
+    std::cout << "Last element at new last index (index 199): " << sales_figures[199] << std::endl;
+
+    for (size_t i = 100; i < sales_figures.size(); ++i) {
+        sales_figures[i] = 100.0 + (i - 99);
+    }
+    std::cout << "\nNewly added elements populated." << std::endl;
+    std::cout << "New element at index 100: " << sales_figures[100] << std::endl;
+    std::cout << "Last element at new last index (index 199): " << sales_figures[199] << std::endl;
+    
+    return 0;
+}
